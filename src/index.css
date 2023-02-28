@@ -1,13 +1,99 @@
+:root {
+  /* light theme */
+  --veryLightGray: hsl(0, 0%, 98%);
+  --veryLightGrayishBlue: hsl(236, 33%, 92%);
+  --lightGrayishBlue: hsl(233, 11%, 84%);
+  --darkGrayishBlue: hsl(236, 9%, 61%);
+  --veryDarkGrayingBlue: hsl(235, 19%, 35%);
+
+  /* dark theme */
+  --veryDarkBlue: hsl(235, 21%, 11%);
+  --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --lightGrayishBlue: hsl(234, 39%, 85%);
+  --lightGrayishBlueHover: hsl(236, 33%, 92%);
+  --darkGrayishBlue: hsl(234, 11%, 52%);
+  --veryDarkGrayishBlue1: hsl(233, 14%, 35%);
+  --veryDarkGrayishBlue2: hsl(237, 14%, 26%);
+}
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+#root {
+  width: 100%;
+  height: 100%;
+}
+/* container */
+.container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -2;
+}
+/* theme */
+#light.container {
+  background-color: var(--veryLightGray);
+}
+#dark.container {
+  background-color: var(--veryDarkBlue);
+}
+/* bg container */
+.bg-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 70%;
+  z-index: -1;
+}
+.bg-container img {
+  /* height: 250px; */
+  max-width: 100%;
+  /* margin: auto;
+  display: block; */
+  object-fit: contain;
+}
+
+/* root layout */
+.root-layout {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 450px;
+  z-index: 2;
+}
+header {
+  width: 100%;
+  padding-top: 3rem;
+}
+.logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo h1 {
+  letter-spacing: 5px;
+  color: white;
+}
+.logo img {
+  width: 20px;
+  cursor: pointer;
+}
+.text-field {
+  background-color: black;
 }
