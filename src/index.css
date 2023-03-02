@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
 :root {
   /* light theme */
   --veryLightGray: hsl(0, 0%, 98%);
@@ -5,6 +7,7 @@
   --lightGrayishBlue: hsl(233, 11%, 84%);
   --darkGrayishBlue: hsl(236, 9%, 61%);
   --veryDarkGrayishBlue: hsl(235, 19%, 35%);
+  --brightBlue: hsl(220, 98%, 61%);
 
   /* dark theme */
   --veryDarkBlue: hsl(235, 21%, 11%);
@@ -21,12 +24,13 @@ body {
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
 #root {
   width: 100%;
   height: 100%;
@@ -106,13 +110,15 @@ header {
   background-color: transparent;
   width: 90%;
   font-size: 0.9rem;
-  caret-color: var(--veryDarkGrayishBlue);
+  caret-color: var(--brightBlue);
+  font-family: "Josefin Sans", sans-serif;
 }
 .text-field input[type="text"]:focus {
   outline: none;
 }
 .text-field input[type="text"]::placeholder {
   color: var(--veryDarkGrayishBlue1);
+  font-family: "Josefin Sans", sans-serif;
 }
 /* theme */
 #light .text-field {
@@ -170,7 +176,7 @@ header {
   gap: 0.8rem;
 }
 .todo-container .last-child nav a.active {
-  color: var(--veryDarkDesaturatedBlue) !important;
+  color: var(--brightBlue) !important;
   font-weight: bold;
 }
 /* themes */
