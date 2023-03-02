@@ -4,7 +4,7 @@
   --veryLightGrayishBlue: hsl(236, 33%, 92%);
   --lightGrayishBlue: hsl(233, 11%, 84%);
   --darkGrayishBlue: hsl(236, 9%, 61%);
-  --veryDarkGrayingBlue: hsl(235, 19%, 35%);
+  --veryDarkGrayishBlue: hsl(235, 19%, 35%);
 
   /* dark theme */
   --veryDarkBlue: hsl(235, 21%, 11%);
@@ -44,7 +44,7 @@ code {
 }
 /* theme */
 #light.container {
-  background-color: var(--veryLightGray);
+  background-color: var(--veryLightGrayishBlue);
 }
 #dark.container {
   background-color: var(--veryDarkBlue);
@@ -95,5 +95,108 @@ header {
   cursor: pointer;
 }
 .text-field {
-  background-color: black;
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.text-field input[type="text"] {
+  border: none;
+  background-color: transparent;
+  width: 90%;
+  font-size: 0.9rem;
+  caret-color: var(--veryDarkGrayishBlue);
+}
+.text-field input[type="text"]:focus {
+  outline: none;
+}
+.text-field input[type="text"]::placeholder {
+  color: var(--veryDarkGrayishBlue1);
+}
+/* theme */
+#light .text-field {
+  background-color: var(--veryLightGray);
+}
+#light .text-field input[type="text"] {
+  color: var(--veryDarkDesaturatedBlue);
+}
+#dark .text-field {
+  background-color: var(--veryDarkGrayishBlue2);
+}
+#dark .text-field input[type="text"] {
+  color: var(--lightGrayishBlueHover);
+}
+
+/* todo container */
+.todo-container {
+  margin-top: 1rem;
+  padding: 0;
+  border-radius: 5px;
+  width: 100%;
+}
+.todo-container .text-field {
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--lightGrayishBlue);
+  font-size: 0.9rem;
+}
+
+/* themes */
+#light .todo-container {
+  background-color: var(--veryLightGray);
+}
+#light .todo-container .text-field {
+  color: var(--veryDarkDesaturatedBlue);
+}
+#dark .todo-container {
+  background-color: var(--veryDarkGrayishBlue2);
+}
+#dark .todo-container .text-field {
+  color: var(--lightGrayishBlueHover);
+}
+/* last child */
+.todo-container .last-child {
+  padding: 0 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+.todo-container .last-child :last-child {
+  cursor: pointer;
+}
+.todo-container .last-child nav {
+  display: flex;
+  gap: 0.8rem;
+}
+.todo-container .last-child nav a.active {
+  color: var(--veryDarkDesaturatedBlue) !important;
+  font-weight: bold;
+}
+/* themes */
+#light .todo-container .last-child {
+  color: var(--veryDarkGrayishBlue1);
+}
+#light .todo-container .last-child nav a {
+  text-decoration: none;
+  color: var(--veryDarkGrayishBlue1);
+}
+#light .todo-container .last-child nav > *:hover {
+  color: var(--darkGrayishBlue);
+}
+#light .todo-container .last-child > *:hover {
+  color: var(--darkGrayishBlue);
+}
+#dark .todo-container .last-child {
+  color: var(--darkGrayishBlue);
+}
+#dark .todo-container .last-child nav > *:hover {
+  color: var(--lightGrayishBlueHover);
+}
+#dark .todo-container .last-child > *:hover {
+  color: var(--lightGrayishBlueHover);
+}
+#dark .todo-container .last-child nav a {
+  text-decoration: none;
+  color: var(--darkGrayishBlue);
 }

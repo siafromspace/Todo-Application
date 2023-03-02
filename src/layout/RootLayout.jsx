@@ -4,9 +4,15 @@ import LightToggleIcon from "../assets/images/icon-sun.svg"
 import DarkToggleIcon from "../assets/images/icon-moon.svg"
 import { useContext } from "react"
 import { ThemeContext } from "../context/ThemeContext"
+import { NavLink, Outlet } from "react-router-dom"
+import { TodoContext } from "../context/TodoContext"
 
 const RootLayout = () => {
     const {theme, toggleTheme} = useContext(ThemeContext)
+    const {todos} = useContext(TodoContext)
+
+    const activeTodos = todos.filter(todo => todo.status === "active")
+
     return ( 
         <>
             <div className="bg-container">
@@ -26,11 +32,20 @@ const RootLayout = () => {
                     </div>
                     <div className="text-field">
                         <input type="checkbox" name="" id="" />
-                        <input type="text" name="" id="" />
+                        <input type="text" name="" placeholder="Create a new todo..." />
                     </div>
                 </header>
-                <main>
-                    <nav></nav>
+                <main className="todo-container">
+                    <Outlet />
+                    <div className="last-child">
+                        <p>{activeTodos.length} items left</p>
+                        <nav>
+                            <NavLink to="/">All</NavLink>
+                            <NavLink to="active">Active</NavLink>
+                            <NavLink to="completed">Completed</NavLink>
+                        </nav>
+                        <p>Clear completed</p>
+                    </div>
                 </main>
             </div>
         </>
