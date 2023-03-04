@@ -2,14 +2,22 @@ import LightBackground from "../assets/images/bg-desktop-light.jpg"
 import DarkBackground from "../assets/images/bg-desktop-dark.jpg"
 import LightToggleIcon from "../assets/images/icon-sun.svg"
 import DarkToggleIcon from "../assets/images/icon-moon.svg"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { ThemeContext } from "../context/ThemeContext"
 import { NavLink, Outlet } from "react-router-dom"
 import { TodoContext } from "../context/TodoContext"
 
 const RootLayout = () => {
     const {theme, toggleTheme} = useContext(ThemeContext)
-    const {todos} = useContext(TodoContext)
+    const {todos, addTodo, clearCompleted} = useContext(TodoContext)
+    const [newTodo, setNewTodo] = useState('')
+
+    const handleKeyDown = (e) => {
+        if(e.key === 'Enter' && newTodo.length > 0) {
+            addTodo(newTodo)
+            setNewTodo('')
+        }
+    }
 
     const activeTodos = todos.filter(todo => todo.status === "active")
 
@@ -32,7 +40,7 @@ const RootLayout = () => {
                     </div>
                     <div className="text-field">
                         <input type="checkbox" name="" id="" />
-                        <input type="text" name="" placeholder="Create a new todo..." />
+                        <input type="text" placeholder="Create a new todo..." value={newTodo} onChange={(e) => setNewTodo(e.target.value)} onKeyDown={handleKeyDown} />
                     </div>
                 </header>
                 <main className="todo-container">
@@ -44,7 +52,7 @@ const RootLayout = () => {
                             <NavLink to="active">Active</NavLink>
                             <NavLink to="completed">Completed</NavLink>
                         </nav>
-                        <p>Clear completed</p>
+                        <p onClick={() => clearCompleted()}>Clear completed</p>
                     </div>
                 </main>
             </div>

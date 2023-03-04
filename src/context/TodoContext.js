@@ -38,8 +38,39 @@ const todoList = [
 const TodoContextProvider = ({children}) => {
     const [todos, setTodos] = useState(todoList)
 
+    const addTodo = (task) => {
+        setTodos(curr => [
+            ...curr,
+            {
+                id: Math.random(),
+                task,
+                status:"active"
+            }
+        ])
+    }
+
+    const removeTodo = (id) => {
+    setTodos(currTodos => currTodos.map(todo => {
+        return (
+            todo.id === id ? 
+            {
+                ...todo,
+                status: todo.status === "active" ? "completed" : "active"
+            } : todo
+        )
+    }))
+    }
+
+    const deleteTodo = (id) => {
+        setTodos(currTodos => currTodos.filter(todo => todo.id !== id))
+    }
+
+    const clearCompleted = () => {
+        setTodos(currTodos => currTodos.filter(todo => todo.status !== "completed"))
+    }
+
     return (
-        <TodoContext.Provider value={{todos}}>
+        <TodoContext.Provider value={{todos, addTodo, removeTodo, deleteTodo, clearCompleted}}>
             {children}
         </TodoContext.Provider>
     )

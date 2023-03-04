@@ -7,7 +7,7 @@ const All = () => {
     return ( 
         <>
           {todos.map(todo => (
-            <Todo task={todo.task} key={todo.id} />
+            <Todo task={todo.task} key={todo.id} id={todo.id} status={todo.status} />
           ))}
         </>
      );

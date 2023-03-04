@@ -5,12 +5,11 @@ import Todo from "../components/Todo";
 const Completed = () => {
     const {todos} = useContext(TodoContext)
     const completedTodos = todos.filter(todo => todo.status === "completed")
-    console.log(completedTodos)
 
     return ( 
         <>
           {completedTodos.map(todo => (
-                    <Todo task={todo.task} key={todo.id} />
+                    <Todo task={todo.task} key={todo.id} id={todo.id} status={todo.status} />
            ))}
         </>
      );

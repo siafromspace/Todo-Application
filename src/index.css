@@ -116,10 +116,6 @@ header {
 .text-field input[type="text"]:focus {
   outline: none;
 }
-.text-field input[type="text"]::placeholder {
-  color: var(--veryDarkGrayishBlue1);
-  font-family: "Josefin Sans", sans-serif;
-}
 /* theme */
 #light .text-field {
   background-color: var(--veryLightGray);
@@ -127,11 +123,19 @@ header {
 #light .text-field input[type="text"] {
   color: var(--veryDarkDesaturatedBlue);
 }
+#light .text-field input[type="text"]::placeholder {
+  color: var(--veryDarkGrayishBlue1);
+  font-family: "Josefin Sans", sans-serif;
+}
 #dark .text-field {
   background-color: var(--veryDarkGrayishBlue2);
 }
 #dark .text-field input[type="text"] {
   color: var(--lightGrayishBlueHover);
+}
+#dark .text-field input[type="text"]::placeholder {
+  color: var(--darkGrayishBlue);
+  font-family: "Josefin Sans", sans-serif;
 }
 
 /* todo container */
@@ -145,8 +149,27 @@ header {
   padding: 0 1rem;
   border-bottom: 1px solid var(--lightGrayishBlue);
   font-size: 0.9rem;
+  position: relative;
 }
-
+.todo-container .cross-icon {
+  display: none;
+  position: absolute;
+  cursor: pointer;
+  right: 0.7rem;
+}
+.todo-container .text-field p {
+  width: 100%;
+}
+.todo-container .text-field p:hover ~ .cross-icon {
+  display: block;
+}
+.todo-container .cross-icon:hover {
+  display: block;
+}
+.line-through {
+  text-decoration: line-through;
+  color: var(--darkGrayishBlue);
+}
 /* themes */
 #light .todo-container {
   background-color: var(--veryLightGray);
@@ -206,3 +229,5 @@ header {
   text-decoration: none;
   color: var(--darkGrayishBlue);
 }
+
+/* icons */
