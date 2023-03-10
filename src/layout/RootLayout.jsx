@@ -47,7 +47,7 @@ const RootLayout = () => {
                     <Outlet />
                     <div className="last-child">
                         <p>{activeTodos.length} items left</p>
-                        <nav>
+                        <nav className="desktop">
                             <NavLink to="/">All</NavLink>
                             <NavLink to="active">Active</NavLink>
                             <NavLink to="completed">Completed</NavLink>
@@ -55,6 +55,12 @@ const RootLayout = () => {
                         <p onClick={() => clearCompleted()}>Clear completed</p>
                     </div>
                 </main>
+                <nav className="mobile">
+                            <NavLink to="/">All</NavLink>
+                            <NavLink to="active">Active</NavLink>
+                            <NavLink to="completed">Completed</NavLink>
+                        </nav>
+                <p className="drag-drop">Drag and drop to reorder list</p>
             </div>
         </>
      );
