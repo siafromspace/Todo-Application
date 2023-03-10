@@ -39,7 +39,7 @@ const RootLayout = () => {
                         <img src={LightToggleIcon} alt="" onClick={toggleTheme} />}
                     </div>
                     <div className="text-field">
-                        <input type="checkbox" name="" id="" />
+                        <div className="check-box"></div>
                         <input type="text" placeholder="Create a new todo..." value={newTodo} onChange={(e) => setNewTodo(e.target.value)} onKeyDown={handleKeyDown} />
                     </div>
                 </header>

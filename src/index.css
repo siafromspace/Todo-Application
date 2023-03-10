@@ -159,6 +159,7 @@ header {
 }
 .todo-container .text-field p {
   width: 100%;
+  cursor: pointer;
 }
 .todo-container .text-field p:hover ~ .cross-icon {
   display: block;
@@ -231,3 +232,59 @@ header {
 }
 
 /* icons */
+.check-box {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 1px solid var(--darkGrayishBlue);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.check-box:hover {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  position: relative;
+  border: 1px solid transparent;
+  /* border-radius: 50%; */
+}
+.check-box:hover::before {
+  content: "";
+  display: block;
+  height: calc(100% - calc(1px * 2));
+  width: calc(100% - calc(1px * 2));
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  border-radius: 50%;
+}
+#light .check-box:hover::before {
+  background: var(--veryLightGray);
+}
+
+#dark .check-box:hover::before {
+  background: var(--veryDarkGrayishBlue2);
+}
+.checked {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.checked:hover {
+  background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+@keyframes AnimateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
