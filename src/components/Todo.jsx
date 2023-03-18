@@ -1,16 +1,23 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { TodoContext } from "../context/TodoContext";
 import crossIcon from "../assets/images/icon-cross.svg"
 import checkIcon from "../assets/images/icon-check.svg"
 
-const Todo = ({task, id, status}) => {
+const Todo = ({index, task, id, status}) => {
   
-  const {removeTodo, deleteTodo} = useContext(TodoContext)
+  const {removeTodo, deleteTodo, handleDragStart, handleDragEnter, handleDragEnd} = useContext(TodoContext)
   const styles = status === "completed" ? 'line-through' : ''
   const check = status === "completed" ? 'checked' : 'check-box'
 
     return ( 
-        <div className="text-field">
+        <div 
+          className="text-field"
+          draggable
+          onDragStart={(e) => handleDragStart(e, index)}
+          onDragEnter={(e) => handleDragEnter(e, index)}
+          onDragEnd={(e) => handleDragEnd(e, index)}
+          onDragOver={(e) => e.preventDefault()}
+        >
           <div className={check} onClick={() => removeTodo(id)}>
             {status === "completed" && <img src={checkIcon} alt="done todo" />}
           </div>

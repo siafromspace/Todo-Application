@@ -151,6 +151,7 @@ header {
   border-bottom: 1px solid var(--lightGrayishBlue);
   font-size: 0.9rem;
   position: relative;
+  cursor: move;
 }
 .todo-container .cross-icon {
   display: none;

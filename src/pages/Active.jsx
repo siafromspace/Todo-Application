@@ -8,8 +8,8 @@ const Active = () => {
 
     return ( 
         <>
-          {activeTodos.map(todo => (
-                    <Todo task={todo.task} key={todo.id} id={todo.id} status={todo.status}/>
+          {activeTodos.map((todo, index) => (
+                    <Todo index={index} task={todo.task} key={todo.id} id={todo.id} status={todo.status}/>
            ))}
         </>
      );

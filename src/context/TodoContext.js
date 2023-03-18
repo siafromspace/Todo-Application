@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useRef } from "react";
 
 export const TodoContext = createContext()
 
@@ -69,8 +69,29 @@ const TodoContextProvider = ({children}) => {
         setTodos(currTodos => currTodos.filter(todo => todo.status !== "completed"))
     }
 
+    const dragItem = useRef(null)
+    const dragOverItem = useRef(null)
+
+    const handleDragStart = (e, index) => {
+        console.log("drag started", index)
+        dragItem.current = index
+    }
+    const handleDragEnter = (e, index) => {
+        console.log("drag enter", index)
+        dragOverItem.current = index
+    }
+    const handleDragEnd = (e, index) => {
+        let copyTodos = [...todos]
+        const dragItemContent = copyTodos.splice(dragItem.current, 1)[0]
+        copyTodos.splice(dragOverItem.current, 0, dragItemContent)
+        dragItem.current = null
+        dragOverItem.current = null
+        setTodos(copyTodos)
+        console.log("drag end", index)
+    }
+    
     return (
-        <TodoContext.Provider value={{todos, addTodo, removeTodo, deleteTodo, clearCompleted}}>
+        <TodoContext.Provider value={{todos, addTodo, removeTodo, deleteTodo, clearCompleted, setTodos, handleDragStart, handleDragEnter, handleDragEnd}}>
             {children}
         </TodoContext.Provider>
     )
