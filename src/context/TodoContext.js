@@ -73,11 +73,9 @@ const TodoContextProvider = ({children}) => {
     const dragOverItem = useRef(null)
 
     const handleDragStart = (e, index) => {
-        console.log("drag started", index)
         dragItem.current = index
     }
     const handleDragEnter = (e, index) => {
-        console.log("drag enter", index)
         dragOverItem.current = index
     }
     const handleDragEnd = (e, index) => {
@@ -87,7 +85,6 @@ const TodoContextProvider = ({children}) => {
         dragItem.current = null
         dragOverItem.current = null
         setTodos(copyTodos)
-        console.log("drag end", index)
     }
     
     return (
