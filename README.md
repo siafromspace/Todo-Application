@@ -19,8 +19,8 @@ This is a Todo Application with add new todos, remove todos, mark todos as compl
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Repository](https://github.com/siafromspace/Todo-Application)
+- Live Site URL: [Todo-Application](https://t0d0-application.vercel.app/)
 
 ### Built with
 
